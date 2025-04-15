@@ -51,7 +51,7 @@ public class AuthRepository : IAuthRepository
         if (user?.Password == null) return false;
 
         // Verify password against stored hash
-        return _securityHelper.IsValidHash(lg.Password, user.Password);
+        return _securityHelper.IsValidHash(user.Password, lg.Password);
     }
 
     public async Task<TokenModel> GetRefreshToken(string userId)
